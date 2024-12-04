@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Clock</title>
+    <style>
+        /* Ensure the clock container has a transparent background */
+        .clock-container {
+            background-color: transparent !important;
+            color: #000; /* Text color, change as needed */
+        }
+
+        /* You can modify other styling aspects here like font-size, position, etc. */
+        .clock {
+            font-family: 'Arial', sans-serif;
+            font-size: 50px;
+            color: #333; /* Text color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock-container">
+        <div class="clock" id="clock"></div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to set the clock immediately
+    </script>
+
+</body>
+</html>
